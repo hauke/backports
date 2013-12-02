@@ -92,11 +92,11 @@ mrproper:
 		kvers="$$kvers $$(seq 0 99 | sed 's/^/3./')"				;\
 		print=0									;\
 		for v in $$kvers ; do							\
+			if [ "$$v" = "$$kver" ] ; then print=1 ; fi			;\
 			if [ "$$print" = "1" ] ; then					\
 				echo config BACKPORT_KERNEL_$$(echo $$v | tr . _)	;\
 				echo "    def_bool y"					;\
 			fi								;\
-			if [ "$$v" = "$$kver" ] ; then print=1 ; fi			;\
 		done > Kconfig.versions							;\
 		# RHEL as well, sadly we need to grep for it				;\
 		RHEL_MAJOR=$$(grep '^RHEL_MAJOR' $(KERNEL_MAKEFILE) | 			\
