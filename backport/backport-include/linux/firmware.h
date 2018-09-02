@@ -6,4 +6,8 @@
 #define request_firmware_direct(fw, name, device) request_firmware(fw, name, device)
 #endif
 
+#if LINUX_VERSION_IS_LESS(4,18,0)
+#define firmware_request_nowarn(fw, name, device) request_firmware(fw, name, device)
+#endif
+
 #endif /* __BACKPORT_LINUX_FIRMWARE_H */
