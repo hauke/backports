@@ -124,13 +124,3 @@ drivers/net/usb/cdc_mbim.c
 drivers/net/usb/cdc_ncm.c
 drivers/net/usb/sierra_net.c
 drivers/net/usb/qmi_wwan.c
-
-# NFC core
-net/nfc/
-include/net/nfc/
-include/uapi/linux/nfc.h
-
-# NFC drivers
-drivers/nfc/
-include/linux/platform_data/nfcmrvl.h
-include/linux/platform_data/nxp-nci.h
