@@ -51,4 +51,16 @@ static inline void ktime_get_ts64(struct timespec64 *ts)
 }
 #endif
 
+#if LINUX_VERSION_IS_LESS(4,18,0)
+static inline void ktime_get_raw_ts64(struct timespec64 *ts)
+{
+	return getrawmonotonic64(ts);
+}
+
+static inline time64_t ktime_get_boottime_seconds(void)
+{
+	return ktime_divns(ktime_get_boottime(), NSEC_PER_SEC);
+}
+#endif
+
 #endif /* __BACKPORT_TIMEKEEPING_H */
