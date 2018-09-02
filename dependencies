@@ -20,17 +20,6 @@ HOSTAP 3.10
 AIRO 3.9
 AIRO_CS 3.9
 
-# missing linux/property.h
-NFC_ST95HF 3.18
-
-# missing devm_gpiod_get_optional()
-# this needs devm_gpiod_get_optional() with 3 arguments.
-NFC_PN544_I2C 3.17
-NFC_TRF7970A 3.17
-
-# this needs devm_gpiod_get_index() with 4 arguments.
-NFC_NXP_NCI_I2C 3.17
-
 # pci_error_handlers->reset_notify is missing
 MWIFIEX_PCIE 3.16
 
@@ -40,33 +29,6 @@ QTNFMAC_PEARL_PCIE 3.13
 # needs pm_system_wakeup() which can't reall be
 # backported properly
 MWIFIEX 3.18
-
-# this needs device_property..() functions and struct acpi_gpio_mapping
-NFC_FDP_I2C 3.19
-NFC_ST21NFCA_I2C 3.19
-NFC_ST_NCI_I2C 3.19
-NFC_ST_NCI_SPI 3.19
-NFC_PN544_I2C 3.19
-
-# NFC core needs PF_NFC defined in socket.h which was
-# only introduced in kernel 3.1
-NFC 3.1
-
-# This needs of_find_property() and devm_gpio_free()
-NFC_MRVL 3.3
-NFC_MRVL_USB 3.3
-NFC_MRVL_UART 3.3
-
-NFC_TRF7970A 3.4
-
-INTEL_IPS 3.2
-
-# needs mei_cldev_register_rx_cb
-NFC_MEI_PHY 4.10
-
-# missing linux/gpio/consumer.h
-NFC_PN544_I2C 3.13
-NFC_FDP 3.13
 
 # tracing results in compile errors
 ATH10K_TRACING 3.4
@@ -83,9 +45,6 @@ IPW2100 4.3
 IPW2200 4.3
 HOSTAP 4.3
 LIBERTAS 4.3
-
-# some prototypes changed - might be fixable but I'm lazy
-NFC_WILINK 4.8
 
 # struct ethtool_link_ksettings is missing, I'm lazy
 USB_USBNET 4.6
