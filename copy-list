@@ -37,7 +37,6 @@ include/linux/mmc/sdio_ids.h
 include/linux/ath9k_platform.h
 include/linux/wl12xx.h
 include/linux/rndis.h
-include/linux/bcm47xx_wdt.h
 include/linux/usb/usbnet.h
 include/linux/usb/cdc.h
 include/uapi/linux/usb/cdc.h
@@ -87,10 +86,6 @@ include/linux/mpls.h
 include/uapi/linux/mpls.h
 
 drivers/net/wireless/ath/
-drivers/ssb/
-include/linux/ssb/
-drivers/bcma/
-include/linux/bcma/
 drivers/net/wireless/cisco/
 drivers/net/wireless/atmel/
 drivers/net/wireless/broadcom/
