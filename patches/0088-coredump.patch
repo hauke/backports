@@ -1,0 +1,108 @@
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/bcmsdh.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/bcmsdh.c
+@@ -1165,7 +1165,9 @@ static struct sdio_driver brcmf_sdmmc_dr
+ #ifdef CONFIG_PM_SLEEP
+ 		.pm = &brcmf_sdio_pm_ops,
+ #endif	/* CONFIG_PM_SLEEP */
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ 		.coredump = brcmf_dev_coredump,
++#endif
+ 	},
+ };
+ 
+--- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/pcie.c
++++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/pcie.c
+@@ -2050,7 +2050,9 @@ static struct pci_driver brcmf_pciedrvr
+ #ifdef CONFIG_PM
+ 	.driver.pm = &brcmf_pciedrvr_pm,
+ #endif
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ 	.driver.coredump = brcmf_dev_coredump,
++#endif
+ };
+ 
+ 
+--- a/drivers/net/wireless/marvell/mwifiex/pcie.c
++++ b/drivers/net/wireless/marvell/mwifiex/pcie.c
+@@ -320,6 +320,7 @@ static void mwifiex_pcie_shutdown(struct
+ 	return;
+ }
+ 
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ static void mwifiex_pcie_coredump(struct device *dev)
+ {
+ 	struct pci_dev *pdev;
+@@ -332,6 +333,7 @@ static void mwifiex_pcie_coredump(struct
+ 			      &card->work_flags))
+ 		schedule_work(&card->work);
+ }
++#endif
+ 
+ static const struct pci_device_id mwifiex_ids[] = {
+ 	{
+@@ -429,7 +431,9 @@ static struct pci_driver __refdata mwifi
+ 	.probe    = mwifiex_pcie_probe,
+ 	.remove   = mwifiex_pcie_remove,
+ 	.driver   = {
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ 		.coredump = mwifiex_pcie_coredump,
++#endif
+ #ifdef CONFIG_PM_SLEEP
+ 		.pm = &mwifiex_pcie_pm_ops,
+ #endif
+--- a/drivers/net/wireless/marvell/mwifiex/sdio.c
++++ b/drivers/net/wireless/marvell/mwifiex/sdio.c
+@@ -466,6 +466,7 @@ static int mwifiex_sdio_suspend(struct d
+ 	return ret;
+ }
+ 
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ static void mwifiex_sdio_coredump(struct device *dev)
+ {
+ 	struct sdio_func *func = dev_to_sdio_func(dev);
+@@ -476,6 +477,7 @@ static void mwifiex_sdio_coredump(struct
+ 			      &card->work_flags))
+ 		schedule_work(&card->work);
+ }
++#endif
+ 
+ /* Device ID for SD8786 */
+ #define SDIO_DEVICE_ID_MARVELL_8786   (0x9116)
+@@ -526,7 +528,9 @@ static struct sdio_driver mwifiex_sdio =
+ 	.remove = mwifiex_sdio_remove,
+ 	.drv = {
+ 		.owner = THIS_MODULE,
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ 		.coredump = mwifiex_sdio_coredump,
++#endif
+ 		.pm = &mwifiex_sdio_pm_ops,
+ 	}
+ };
+--- a/drivers/net/wireless/marvell/mwifiex/usb.c
++++ b/drivers/net/wireless/marvell/mwifiex/usb.c
+@@ -652,6 +652,7 @@ static void mwifiex_usb_disconnect(struc
+ 	usb_put_dev(interface_to_usbdev(intf));
+ }
+ 
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ static void mwifiex_usb_coredump(struct device *dev)
+ {
+ 	struct usb_interface *intf = to_usb_interface(dev);
+@@ -660,6 +661,7 @@ static void mwifiex_usb_coredump(struct
+ 	mwifiex_fw_dump_event(mwifiex_get_priv(card->adapter,
+ 					       MWIFIEX_BSS_ROLE_ANY));
+ }
++#endif
+ 
+ static struct usb_driver mwifiex_usb_driver = {
+ 	.name = "mwifiex_usb",
+@@ -670,7 +672,9 @@ static struct usb_driver mwifiex_usb_dri
+ 	.resume = mwifiex_usb_resume,
+ 	.soft_unbind = 1,
+ 	.drvwrap.driver = {
++#if LINUX_VERSION_IS_GEQ(4,17,0)
+ 		.coredump = mwifiex_usb_coredump,
++#endif
+ 	},
+ };
+ 
