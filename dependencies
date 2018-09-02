@@ -53,6 +53,9 @@ USB_NET_RNDIS_WLAN 4.6
 # depends on struct mmc_card::ocr
 RSI_SDIO 3.13
 
+# For Coexsitence the BT driver has to export rsi_bt_ops
+RSI_COEX 4.17
+
 # depends on devm_led_classdev_register()
 MT76_CORE 4.1
 MT76x2E 4.1

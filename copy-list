@@ -54,6 +54,7 @@ include/net/cfg80211-wext.h
 include/net/ieee80211_radiotap.h
 include/net/lib80211.h
 include/net/mac80211.h
+include/net/rsi_91x.h
 include/net/regulatory.h
 include/net/codel.h
 include/net/codel_impl.h
