@@ -102,4 +102,18 @@ size_t sg_pcopy_from_buffer(struct scatterlist *sgl, unsigned int nents,
 
 #endif /* LINUX_VERSION_IS_LESS(3, 11, 0) */
 
+#if LINUX_VERSION_IS_LESS(4, 17, 0)
+/**
+ * sg_init_marker - Initialize markers in sg table
+ * @sgl:	   The SG table
+ * @nents:	   Number of entries in table
+ *
+ **/
+static inline void sg_init_marker(struct scatterlist *sgl,
+				  unsigned int nents)
+{
+	sg_mark_end(&sgl[nents - 1]);
+}
+#endif
+
 #endif /* __BACKPORT_SCATTERLIST_H */
