@@ -1,6 +1,6 @@
 --- a/drivers/staging/rtl8188eu/hal/rtl8188eu_recv.c
 +++ b/drivers/staging/rtl8188eu/hal/rtl8188eu_recv.c
-@@ -13,7 +13,7 @@
+@@ -5,7 +5,7 @@
   *
   ******************************************************************************/
  #define _RTL8188EU_RECV_C_

@@ -1,13 +1,11 @@
 --- a/drivers/staging/Makefile
 +++ b/drivers/staging/Makefile
-@@ -1,8 +1,8 @@
+@@ -1,7 +1,7 @@
  # SPDX-License-Identifier: GPL-2.0
  # Makefile for staging directory
  
 -obj-y				+= media/
--obj-y				+= typec/
 +#obj-y				+= media/
-+#obj-y				+= typec/
- obj-$(CONFIG_IPX)		+= ipx/
- obj-$(CONFIG_NCP_FS)		+= ncpfs/
- obj-$(CONFIG_IRDA)		+= irda/net/
+ obj-$(CONFIG_PRISM2_USB)	+= wlan-ng/
+ obj-$(CONFIG_COMEDI)		+= comedi/
+ obj-$(CONFIG_FB_OLPC_DCON)	+= olpc_dcon/

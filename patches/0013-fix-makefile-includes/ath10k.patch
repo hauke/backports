@@ -1,6 +1,6 @@
 --- a/drivers/net/wireless/ath/ath10k/htt.h
 +++ b/drivers/net/wireless/ath/ath10k/htt.h
-@@ -19,6 +19,7 @@
+@@ -20,6 +20,7 @@
  #define _HTT_H_
  
  #include <linux/bug.h>

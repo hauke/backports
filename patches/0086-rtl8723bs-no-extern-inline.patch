@@ -2,7 +2,7 @@ diff --git a/drivers/staging/rtl8723bs/include/ieee80211.h b/drivers/staging/rtl
 index 73ce637..fa9c80f 100644
 --- a/drivers/staging/rtl8723bs/include/ieee80211.h
 +++ b/drivers/staging/rtl8723bs/include/ieee80211.h
-@@ -1008,18 +1008,18 @@ enum ieee80211_state {
+@@ -850,18 +850,18 @@ enum ieee80211_state {
  #define IP_FMT "%pI4"
  #define IP_ARG(x) (x)
  

@@ -2,11 +2,11 @@ diff --git a/compat/lib-refcount.c b/compat/lib-refcount.c
 index 5d0582a..8d108f9 100644
 --- a/compat/lib-refcount.c
 +++ b/compat/lib-refcount.c
-@@ -37,6 +37,7 @@
- 
+@@ -39,6 +39,7 @@
  #include <linux/refcount.h>
+ #include <linux/spinlock.h>
  #include <linux/bug.h>
 +#include <linux/export.h>
  
- #ifdef CONFIG_REFCOUNT_FULL
- 
+ /**
+  * refcount_add_not_zero_checked - add a value to a refcount unless it is 0

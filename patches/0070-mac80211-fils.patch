@@ -5,7 +5,7 @@
  /*
   * FILS AEAD for (Re)Association Request/Response frames
   * Copyright 2016, Qualcomm Atheros, Inc.
-@@ -332,3 +333,4 @@ int fils_decrypt_assoc_resp(struct ieee80211_sub_if_data *sdata,
+@@ -332,3 +333,4 @@ int fils_decrypt_assoc_resp(struct ieee8
  	*frame_len -= AES_BLOCK_SIZE;
  	return 0;
  }
@@ -42,7 +42,7 @@
  #endif /* FILS_AEAD_H */
 --- a/net/mac80211/main.c
 +++ b/net/mac80211/main.c
-@@ -553,7 +553,9 @@ struct ieee80211_hw *ieee80211_alloc_hw_nm(size_t priv_data_len,
+@@ -554,7 +554,9 @@ struct ieee80211_hw *ieee80211_alloc_hw_
  			   NL80211_FEATURE_MAC_ON_CREATE |
  			   NL80211_FEATURE_USERSPACE_MPM |
  			   NL80211_FEATURE_FULL_AP_CLIENT_STATE;

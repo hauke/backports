@@ -1,6 +1,6 @@
 --- a/include/net/cfg80211.h
 +++ b/include/net/cfg80211.h
-@@ -3723,6 +3723,9 @@ struct wiphy_iftype_ext_capab {
+@@ -3971,6 +3971,9 @@ struct wiphy_iftype_ext_capab {
  struct wiphy {
  	/* assign these fields before you register the wiphy */
  
