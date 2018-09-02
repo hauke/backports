@@ -15,6 +15,7 @@ MAINTAINERS
 include/linux/unaligned/
 include/linux/hashtable.h
 include/linux/fixp-arith.h
+include/linux/crc32poly.h
 
 # This just defines some macros, simply take it
 include/linux/bitfield.h
