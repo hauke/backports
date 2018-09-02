@@ -5,6 +5,8 @@
 
 #include <linux/version.h>
 
+#include <linux/overflow.h>
+
 /*
  * string.h is usually included from the asm/ folder in most configuration,
  * but on some older kernels it doesn't. As we're using memcpy() in the code
