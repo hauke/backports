@@ -5,11 +5,9 @@ identifier TRUE =~ "true";
 @@
 C(...)
 {
-	<...
 -	NDEV->needs_free_netdev = TRUE;
 -	NDEV->priv_destructor = D;
 +	netdev_set_priv_destructor(NDEV, D);
-	...>
 }
 
 @r2 depends on r1@
