@@ -63,3 +63,6 @@ MT76x2E 4.1
 # select_queue_fallback_t is missing
 RTL8723BS 3.14
 R8188EU  3.14
+
+# pci_alloc_irq_vectors is missing
+WIL6210 4.8
