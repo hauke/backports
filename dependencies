@@ -13,8 +13,9 @@ WLCORE 3.2
 WL12XX 3.2
 WL18XX 3.2
 
-# hostapd uses proc_remove()
-HOSTAP 3.10
+# hostapd uses proc_create_single_data()
+HOSTAP 4.18
+ATMEL 4.18
 
 # This driver uses the remove_proc_subtree() function.
 AIRO 3.9
