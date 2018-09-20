@@ -1,0 +1,24 @@
+diff --git a/drivers/net/wireless/intel/iwlwifi/pcie/trans.c b/drivers/net/wireless/intel/iwlwifi/pcie/trans.c
+index 7229991ae70d..d77d0aa3bf7b 100644
+--- a/drivers/net/wireless/intel/iwlwifi/pcie/trans.c
++++ b/drivers/net/wireless/intel/iwlwifi/pcie/trans.c
+@@ -1946,6 +1946,11 @@ static void iwl_trans_pcie_removal_wk(struct work_struct *wk)
+ 	struct iwl_trans_pcie_removal *removal =
+ 		container_of(wk, struct iwl_trans_pcie_removal, work);
+ 	struct pci_dev *pdev = removal->pdev;
++#if LINUX_VERSION_IS_LESS(3,14,0)
++	dev_err(&rescan->pdev->dev,
++		"Device disconnected - can't rescan on old kernels.\n");
++	pci_dev_put(pdev);
++#else
+ 	char *prop[] = {"EVENT=INACCESSIBLE", NULL};
+ 
+ 	dev_err(&pdev->dev, "Device gone - attempting removal\n");
+@@ -1957,6 +1962,7 @@ static void iwl_trans_pcie_removal_wk(struct work_struct *wk)
+ 
+ 	kfree(removal);
+ 	module_put(THIS_MODULE);
++#endif /* LINUX_VERSION_IS_LESS(3,14,0) */
+ }
+ 
+ static bool iwl_trans_pcie_grab_nic_access(struct iwl_trans *trans,
