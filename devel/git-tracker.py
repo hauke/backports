@@ -190,6 +190,8 @@ if __name__ == '__main__':
         backport_rev = git.rev_parse(tree=source_dir)
 
         for tree in trees:
+            # make sure tree is ascii to prevent conversion problems
+            tree = str(tree)
             input = config.get(tree, 'input')
             output = config.get(tree, 'output')
             defconfig = None
