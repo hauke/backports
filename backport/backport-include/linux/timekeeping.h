@@ -25,10 +25,7 @@ static inline u64 ktime_get_boot_ns(void)
 #endif /* < 3.17 */
 
 #if LINUX_VERSION_IS_LESS(4,18,0)
-static inline time64_t ktime_get_boottime_seconds(void)
-{
-	return ktime_divns(ktime_get_boottime(), NSEC_PER_SEC);
-}
+extern time64_t ktime_get_boottime_seconds(void);
 #endif /* < 4.18 */
 
 #if LINUX_VERSION_IS_LESS(3,19,0)
