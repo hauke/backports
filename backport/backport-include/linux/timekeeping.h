@@ -55,7 +55,7 @@ static inline void ktime_get_ts64(struct timespec64 *ts)
 }
 #endif
 
-#if LINUX_VERSION_IS_LESS(3,19,0)
+#if LINUX_VERSION_IS_LESS(3,17,0)
 /* This was introduced in 4.15, but we only need it in the
  * ktime_get_raw_ts64 backport() for < 3.19.
  */
