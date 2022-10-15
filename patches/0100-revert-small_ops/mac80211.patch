@@ -1,6 +1,6 @@
 --- a/net/wireless/nl80211.c
 +++ b/net/wireless/nl80211.c
-@@ -14706,9 +14706,11 @@ static const struct genl_ops nl80211_ops
+@@ -14722,9 +14722,11 @@ static const struct genl_ops nl80211_ops
  		.internal_flags = NL80211_FLAG_NEED_WIPHY |
  				  NL80211_FLAG_NEED_RTNL,
  	},
@@ -12,7 +12,7 @@
  	{
  		.cmd = NL80211_CMD_SET_WIPHY,
  		.validate = GENL_DONT_VALIDATE_STRICT | GENL_DONT_VALIDATE_DUMP,
-@@ -15570,8 +15572,10 @@ static struct genl_family nl80211_fam __
+@@ -15586,8 +15588,10 @@ static struct genl_family nl80211_fam __
  	.module = THIS_MODULE,
  	.ops = nl80211_ops,
  	.n_ops = ARRAY_SIZE(nl80211_ops),
