@@ -1,5 +1,3 @@
-diff --git a/compat/lib-refcount.c b/compat/lib-refcount.c
-index 5d0582a..8d108f9 100644
 --- a/compat/lib-refcount.c
 +++ b/compat/lib-refcount.c
 @@ -7,6 +7,7 @@
