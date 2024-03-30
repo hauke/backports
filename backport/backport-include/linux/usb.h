@@ -13,7 +13,11 @@ usb_find_common_endpoints(struct usb_host_interface *alt,
 		struct usb_endpoint_descriptor **int_out);
 #endif /* < 4.12 */
 
-#if LINUX_VERSION_IS_LESS(5,15,0)
+#if LINUX_VERSION_IS_LESS(6,3,5) && \
+	!LINUX_VERSION_IN_RANGE(6,1,31, 6,2,0) &&     \
+	!LINUX_VERSION_IN_RANGE(5,15,114, 5,16,0) &&     \
+	!LINUX_VERSION_IN_RANGE(5,10,181, 5,11,0) &&     \
+	!LINUX_VERSION_IN_RANGE(5,4,244, 5,5,0)
 #define usb_check_bulk_endpoints LINUX_BACKPORT(usb_check_bulk_endpoints)
 bool usb_check_bulk_endpoints(
 		const struct usb_interface *intf, const u8 *ep_addrs);
