@@ -1,0 +1,11 @@
+--- a/net/wireless/Makefile
++++ b/net/wireless/Makefile
+@@ -20,7 +20,7 @@ cfg80211-$(CONFIG_CFG80211_WEXT) += wext
+ CFLAGS_trace.o := -I$(src)
+ 
+ cfg80211-$(CONFIG_CFG80211_USE_KERNEL_REGDB_KEYS) += shipped-certs.o
+-ifneq ($(CONFIG_CFG80211_EXTRA_REGDB_KEYDIR),)
++ifneq ($(CONFIG_CFG80211_EXTRA_REGDB_KEYDIR),"")
+ cfg80211-y += extra-certs.o
+ endif
+ 
