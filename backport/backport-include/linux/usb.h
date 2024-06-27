@@ -21,6 +21,9 @@ usb_find_common_endpoints(struct usb_host_interface *alt,
 #define usb_check_bulk_endpoints LINUX_BACKPORT(usb_check_bulk_endpoints)
 bool usb_check_bulk_endpoints(
 		const struct usb_interface *intf, const u8 *ep_addrs);
+#define usb_check_int_endpoints LINUX_BACKPORT(usb_check_int_endpoints)
+bool usb_check_int_endpoints(
+		const struct usb_interface *intf, const u8 *ep_addrs);
 #endif /* < 5.15 */
 
 #endif /* __BACKPORT_LINUX_USB_H */
