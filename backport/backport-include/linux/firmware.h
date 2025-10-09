@@ -6,10 +6,6 @@
 #include <linux/module.h>
 #endif
 
-#if LINUX_VERSION_IS_LESS(4,18,0)
-#define firmware_request_nowarn(fw, name, device) request_firmware(fw, name, device)
-#endif
-
 #ifndef FW_ACTION_NOUEVENT
 #define FW_ACTION_NOUEVENT FW_ACTION_NOHOTPLUG
 #endif

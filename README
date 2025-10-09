@@ -7,7 +7,7 @@ down to older kernels. It currently backports the following subsystems:
   * WWAN
 
 This package provides the latest Linux kernel subsystem enhancements
-for kernels 4.17 and above.
+for kernels 4.18 and above.
 
 # Documentation
 

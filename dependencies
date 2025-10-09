@@ -3,10 +3,6 @@
 
 WL1251_SDIO kconfig: CONFIG_WILINK_PLATFORM_DATA
 
-# hostapd uses proc_create_single_data()
-HOSTAP 4.18
-ATMEL 4.18
-
 # needs .ndo_get_port_parent_id
 QTNFMAC 5.1
 QTNFMAC_PCIE 5.1
@@ -14,9 +10,6 @@ QTNFMAC_PCIE 5.1
 # depends on crypto_sync_skcipher()
 AIRO 4.20
 AIRO_CS 4.20
-
-# mt7915 testmode uses skb_copy_header()
-NL80211_TESTMODE 4.18
 
 # skb list
 MT76x0E 4.19
