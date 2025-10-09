@@ -3,15 +3,6 @@
 #include_next <net/sock.h>
 #include <linux/version.h>
 
-#if LINUX_VERSION_IS_LESS(4,16,0)
-#define sk_pacing_shift_update LINUX_BACKPORT(sk_pacing_shift_update)
-static inline void sk_pacing_shift_update(struct sock *sk, int val)
-{
-	if (!sk || !sk_fullsock(sk) || sk->sk_pacing_shift == val)
-		return;
-	sk->sk_pacing_shift = val;
-}
-#endif /* < 4.16 */
 
 #if LINUX_VERSION_IS_LESS(5,14,0)
 static inline void backport_sk_error_report(struct sock *sk)

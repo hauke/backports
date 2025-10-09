@@ -55,7 +55,6 @@ jobs:
     strategy:
       matrix:
         kernel: [
-           "4.15",
            "4.16",
            "4.17",
            "4.18",
