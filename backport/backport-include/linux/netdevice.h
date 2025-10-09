@@ -4,20 +4,6 @@
 #include <linux/version.h>
 #include <backport/magic.h>
 
-#if LINUX_VERSION_IS_LESS(4,15,0)
-static inline int _bp_netdev_upper_dev_link(struct net_device *dev,
-					    struct net_device *upper_dev)
-{
-	return netdev_upper_dev_link(dev, upper_dev);
-}
-#define netdev_upper_dev_link3(dev, upper, extack) \
-	netdev_upper_dev_link(dev, upper)
-#define netdev_upper_dev_link2(dev, upper) \
-	netdev_upper_dev_link(dev, upper)
-#define netdev_upper_dev_link(...) \
-	macro_dispatcher(netdev_upper_dev_link, __VA_ARGS__)(__VA_ARGS__)
-#endif
-
 #if LINUX_VERSION_IS_LESS(4,19,0)
 static inline void netif_receive_skb_list(struct sk_buff_head *head)
 {

@@ -3,12 +3,6 @@
 #include_next <linux/lockdep.h>
 #include <linux/version.h>
 
-#if LINUX_VERSION_IS_LESS(4,15,0)
-#ifndef CONFIG_LOCKDEP
-struct lockdep_map { };
-#endif /* CONFIG_LOCKDEP */
-#endif /* LINUX_VERSION_IS_LESS(4,15,0) */
-
 #if LINUX_VERSION_IS_LESS(5,11,0)
 #if !defined(CONFIG_LOCKDEP) && !defined(lockdep_is_held)
 /* upstream since 5.11 in this exact same way - calls compile away */

@@ -7,11 +7,9 @@
 #define sk_pacing_shift_update LINUX_BACKPORT(sk_pacing_shift_update)
 static inline void sk_pacing_shift_update(struct sock *sk, int val)
 {
-#if LINUX_VERSION_IS_GEQ(4,15,0)
 	if (!sk || !sk_fullsock(sk) || sk->sk_pacing_shift == val)
 		return;
 	sk->sk_pacing_shift = val;
-#endif /* >= 4.15 */
 }
 #endif /* < 4.16 */
 

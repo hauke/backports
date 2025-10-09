@@ -60,13 +60,6 @@ static inline void timer_setup(struct timer_list *timer,
 	container_of(callback_timer, typeof(*var), timer_fieldname)
 #endif
 
-#if LINUX_VERSION_IS_LESS(4,15,0)
-#undef DEFINE_TIMER
-#define DEFINE_TIMER(_name, _function)				\
-	struct timer_list _name =				\
-		__TIMER_INITIALIZER(_function, 0, 0, 0)
-#endif
-
 /* This was backported to 4.19.312 and 5,4,274, but we do not support such high minor numbers use 255 instead. */
 #if LINUX_VERSION_IS_LESS(6,1,84) &&			\
 	!LINUX_VERSION_IN_RANGE(4,19,255, 4,20,0) &&	\

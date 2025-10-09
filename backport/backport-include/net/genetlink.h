@@ -13,30 +13,6 @@ static inline struct netlink_ext_ack *genl_callback_extack(struct netlink_callba
 #endif
 }
 
-#if LINUX_VERSION_IS_LESS(4,15,0)
-#define genlmsg_nlhdr LINUX_BACKPORT(genlmsg_nlhdr)
-static inline struct nlmsghdr *genlmsg_nlhdr(void *user_hdr)
-{
-	return (struct nlmsghdr *)((char *)user_hdr -
-				   GENL_HDRLEN -
-				   NLMSG_HDRLEN);
-}
-
-#ifndef genl_dump_check_consistent
-static inline
-void backport_genl_dump_check_consistent(struct netlink_callback *cb,
-					 void *user_hdr)
-{
-	struct genl_family dummy_family = {
-		.hdrsize = 0,
-	};
-
-	genl_dump_check_consistent(cb, user_hdr, &dummy_family);
-}
-#define genl_dump_check_consistent LINUX_BACKPORT(genl_dump_check_consistent)
-#endif
-#endif /* LINUX_VERSION_IS_LESS(4,15,0) */
-
 #if LINUX_VERSION_IS_LESS(5,2,0)
 enum genl_validate_flags {
 	GENL_DONT_VALIDATE_STRICT		= BIT(0),
